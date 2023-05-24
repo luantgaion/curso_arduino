@@ -1,0 +1,37 @@
+//Ex 5
+
+float celsiusToFahrenheit(float celsius) {
+  return (celsius * 9.0 / 5.0) + 32.0;
+}
+
+float fahrenheitToCelsius(float fahrenheit) {
+  return (fahrenheit - 32.0) * 5.0 / 9.0;
+}
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    float temperatura;
+    char escala;
+
+    temperatura = Serial.parseFloat();
+    escala = Serial.read();
+
+    float temperaturaConvertida;
+    if (escala == 'C' || escala == 'c') {
+      temperaturaConvertida = celsiusToFahrenheit(temperatura);
+      Serial.print("Temperatura em Fahrenheit: ");
+    } else if (escala == 'F' || escala == 'f') {
+      temperaturaConvertida = fahrenheitToCelsius(temperatura);
+      Serial.print("Temperatura em Celsius: ");
+    } else {
+      Serial.println("Escala inválida. Use 'C' ou 'F'.");
+      return;
+    }
+
+    Serial.println(temperaturaConvertida);
+  }
+}
