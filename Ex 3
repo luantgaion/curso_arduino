@@ -1,0 +1,26 @@
+//Ex 3
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int number;
+  if(Serial.available()>0){
+    number = Serial.parseInt();
+    if(number>0){
+      Serial.println("positivo");
+      if(number%2 == 0){
+      	Serial.println("par");
+      }else{
+      	Serial.println("ímpar");
+      }
+    }else{
+    
+      Serial.println("negativo");
+      
+    }
+  }
+}
