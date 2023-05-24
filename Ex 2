@@ -1,0 +1,36 @@
+//Ex 2
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println("Hello World!");
+}
+
+void loop()
+{
+  int number1;
+  int number2;
+  int sum;
+  int div;
+  int mult;
+  int sub;
+  if(Serial.available() > 0){
+    
+    number1 = Serial.parseInt();
+    Serial.println(number1);
+    number2 = Serial.parseInt();
+    Serial.println(number2);
+   	Serial.println("---------");
+    
+    sum = number1 + number2;
+    div = number1 / number2;
+    mult= number1 * number2;
+    sub = number1 - number2;
+    
+    Serial.println(sum);
+    Serial.println(div);
+    Serial.println(mult);
+    Serial.println(sub);
+     
+  }
+}
